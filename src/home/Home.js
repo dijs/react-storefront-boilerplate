@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Container from 'react-storefront/Container'
 import Typography from '@material-ui/core/Typography'
 import Row from 'react-storefront/Row'
-import withAmp from 'react-storefront/amp/withAmp'
+import withAmp from 'react-storefront-extensions/amp/withAmp'
 
 @withAmp
 export default class Home extends Component { 

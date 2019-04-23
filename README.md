@@ -10,13 +10,21 @@ First, install the dependencies:
 npm install
 ```
 
-## Running
+## Running (Moovweb XDN SDK)
 
 ```
 npm start
 ```
 
-This builds and starts your application on [https://localhost:8080](https://localhost:8080).  Once the build is complete, your browser will automatically open and display the application.
+This builds and starts your application on [https://localhost:8080](https://localhost:8080) using the Moovweb XDN SDK.  Once the build is complete, your browser will automatically open and display the application.
+
+## Running (Express)
+
+You can also run you app using express:
+
+```
+npm start:express
+```
 
 ## Windows
 
@@ -69,9 +77,9 @@ Update the host map in moov_config-prod.json.  The customer will need to create 
 
 Edit the name in package.json.  Use `<customer>-pwa`.
 
-### Moov Console
+### Moovweb Console
 
-Create the development environment in https://console.moovweb.com/:
+Create the development environment in the [Moovweb Console](https://console.moovweb.com):
 
 1. Click "Create New Project"
 2. Enter a name and select "Single Domain".  We suggest `<customer>-pwa-dev`
@@ -117,3 +125,4 @@ The configure the project in [Circle CI - Moovweb Projects](https://circleci.com
 Lastly, start a build and ensure that it succeeds.
 
 
+Test Mark XIV

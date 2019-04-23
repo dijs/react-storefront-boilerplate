@@ -7,6 +7,7 @@ export default function subcategoryHandler({ c='0', id='0', filters }, request, 
     if (filters) {
       return subcategory;
     }
+
     return withGlobalState(request, globalState, { 
       title: subcategory.name,
       page: 'Subcategory',

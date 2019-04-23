@@ -13,7 +13,7 @@
   },
   "layers": ["minify-js", "minify-css", "live-reload"],
   "host_map": [
-    "$.moovweb.cloud => origin.moovweb.com"
+    "react-storefront-boilerplate.moovweb.cloud => dev-origin.moovweb.com"
   ],
   "static_paths": {
     "/manifest.json": "/manifest.json",
