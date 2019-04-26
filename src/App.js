@@ -32,10 +32,13 @@ export default class App extends Component {
     // DO we have a session?
     const sessionId = window.Cookies.get('sessionid');
     if (!sessionId) {
+      console.log('We do not have a session, fetching one');
       await fetch('/session');
     }
     getCart(sessionId).then(items => {
       this.props.cart.setItems(items);
+    }).catch(err => {
+      console.log('Error getting session', err);
     })
   }
   render() {
@@ -44,6 +47,7 @@ export default class App extends Component {
         <Helmet>
           <link rel="shortcut icon" href="/icons/favicon.ico"/>
           <meta name="description" content="Build and deploy sub-second e-commerce progressive web apps in record time."/>
+          <script src="http://sdks.shopifycdn.com/js-buy-sdk/v2/latest/index.umd.min.js" />
         </Helmet>
         <Header/> 
         <NavTabs/>
