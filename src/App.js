@@ -9,7 +9,7 @@ import CategorySkeleton from './category/CategorySkeleton'
 import SubcategorySkeleton from './subcategory/SubcategorySkeleton'
 import ProductSkeleton from './product/ProductSkeleton'
 import 'js-cookie'
-import { getCart } from 'react-storefront-extensions/shopify'
+import { getCart, createSessionId } from 'react-storefront-extensions/shopify'
 import { observer, inject } from 'mobx-react'
 
 @withStyles(theme => ({
@@ -30,10 +30,13 @@ import { observer, inject } from 'mobx-react'
 export default class App extends Component {
   async componentDidMount() {
     // DO we have a session?
-    const sessionId = window.Cookies.get('sessionid');
+    let sessionId = window.Cookies.get('sessionid');
     if (!sessionId) {
       console.log('We do not have a session, fetching one');
-      await fetch('/session');
+      sessionId = await createSessionId();
+      console.log('Created session id', sessionId);
+      window.Cookies.set('sessionid', sessionId);
+      return;
     }
     getCart(sessionId).then(items => {
       this.props.cart.setItems(items);
@@ -47,7 +50,6 @@ export default class App extends Component {
         <Helmet>
           <link rel="shortcut icon" href="/icons/favicon.ico"/>
           <meta name="description" content="Build and deploy sub-second e-commerce progressive web apps in record time."/>
-          <script src="http://sdks.shopifycdn.com/js-buy-sdk/v2/latest/index.umd.min.js" />
         </Helmet>
         <Header/> 
         <NavTabs/>

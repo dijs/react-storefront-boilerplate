@@ -10,7 +10,7 @@ export default new Router()
     fromClient({ page: 'Home' }),
     fromServer('./home/home-handler')
   )
-  .get('/session', fromServer('./checkout/session-handler'))
+  // .get('/session', fromServer('./checkout/session-handler'))
   .get('/c/:id',
     cacheHandler,
     fromClient({ page: 'Category' }),
