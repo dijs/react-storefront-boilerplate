@@ -22,5 +22,6 @@
     "/workbox-*": "/workbox-*",
     "/icons/*": "/icons/*",
     "/robots.txt": "/robots.txt"
-  }
+  },
+  "validate_amp": true
 }
